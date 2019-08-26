@@ -1,9 +1,14 @@
 import React from 'react';
-import './App.css';
+import JournalForm from './JournalComponents/JournalForm';
 
 function App() {
   return (
     <div className="App">
+  <h1> Design Your Life </h1>
+     <h3>Activity Log</h3>
+     <JournalForm/>
+
+     
    
     </div>
   );

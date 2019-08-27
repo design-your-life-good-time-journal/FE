@@ -37,10 +37,6 @@ input, textarea {
   padding: 15px 22px;
   margin: 10px 5px;
   box-sizing: border-box;  
-  border-bottom-color: #060;
-  border-top-color: #060;
-  border-right-color:#060;
-  border-left-color:#060;
   border-radius: 4px;
 
 }
@@ -55,7 +51,7 @@ label {
 
 
 
-
+/* 
 @main-color: #fff;
 @font-color: #000;
 @button-color: #060;
@@ -63,4 +59,4 @@ label {
 
 @tablet: ~'(min-width: 700px)';
 
-@desktop ~'(min-width: 1000px)';
+@desktop ~'(min-width: 1000px)'; */

@@ -18,17 +18,13 @@ function App() {
   return (
    <WrapperDiv>
     <h1> Design Your Life </h1>
-      <h3>Journal</h3>
-
-    
+      <h2>Journal Entry:</h2>
   <div>
-    
-    <Button  shape="circle" size="large" icon="smile" />
+    <Button  shape="circle" size="large" icon="smile" theme="twoTone" twoToneColor="#52c41a" />
     <Button shape="circle" size="large" icon="meh" />
     <Button type= 'danger' shape="circle" size="large" icon="frown" />
-   
   </div>,
-
+      <h3>Activity</h3>
       <JournalForm/>
     </ WrapperDiv>
 

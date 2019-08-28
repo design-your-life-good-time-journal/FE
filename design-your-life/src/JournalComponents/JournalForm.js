@@ -1,29 +1,44 @@
 import React from 'react';
-import {Formik, Form, Field} from 'formik'; 
-import { useState } from "react";
+import {withFormik, Form, Field} from 'formik'; 
 import { Input, Button, Label, Icon} from 'semantic-ui-react';
 
 
 
-
-
-
-function JournalForm() {
+const JournalForm = ({ errors, touched, values}) => {
   
    return (
-  <div className="Form">
+
     <Form>
-      <Label> Activity:<Input type="text" placeholder="Activity"/></Label>
-      <textarea name="body" placeholder="Write Your Thoughts Here"/>
+      <Field component="select" name="activity"> Activity
+        <option>Select Activity</option>
+        <option value="work">Work</option>
+        <option value="social">Social</option>
+        <option value="excercise">Excercise</option>
+        <option value="excercise">Meditation</option>
+
+      </Field>
+      <br></br>
+      <h3> Reflection </h3>
+      <input type="body" name="body" placeholder="Thoughts Here" />
+      <br></br>
+      <Button>Log Reflection</Button>
     </Form>
-  
+   );
+  }
+  const FormikJournalForm = withFormik({
+  mapPropsToValues({ activity, body }) {
 
-  <div className='SubmitButton'>
-    <Button>Log Reflection</Button>
-   </div>
-  </div>
-  )};
+    return {
+      activity: activity || "",
+      body: body || ""
+    };
+  },
 
+handleSubmit(values) {
+    console.log(values);
+    //THIS IS WHERE YOU DO YOUR FORM SUBMISSION CODE... HTTP REQUESTS, ETC.
+  }
+})(JournalForm);
 
+export default FormikJournalForm;
 
-export default JournalForm;

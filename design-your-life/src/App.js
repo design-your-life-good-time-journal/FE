@@ -1,6 +1,7 @@
 import JournalForm from './JournalComponents/JournalForm';
 import styled from 'styled-components'
-import React, { Component } from 'react';
+import React, { Component, Route } from 'react';
+import { BrowserRouter as NavLink } from "react-router-dom";
 import './App.css';
 
 
@@ -12,14 +13,18 @@ const WrapperDiv = styled.div`
     border-bottom: black;
 `;
 
-
 function App() {
-  return (
-   <WrapperDiv>
-    <h1>  </h1>
-      
-      <JournalForm/>
-    </ WrapperDiv>
+ return (
+  <WrapperDiv>
+      <div className="navbar">
+        <NavLink exact to="/" activeClassName="activeNavButton">Home</NavLink>
+        <NavLink to="/information" activeClassName="activeNavButton">Information</NavLink>
+      />
+    
+        <h1>Design Your Life</h1>
+      </div> 
+     <JournalForm/>
+   </ WrapperDiv>
 
     );
   }

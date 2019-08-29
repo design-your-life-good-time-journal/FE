@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {withFormik, Form, Field} from 'formik'; 
-import { Button} from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 import Mood from './Mood';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -9,25 +9,23 @@ import axios from 'axios';
 const JournalForm = ({ errors, touched, values, status}) => {
   const [journals, setJournals] = useState([]);
 
-    console.log("this is touched", touched);
-    useEffect(() => {
-    if (status) {
-      setJournals([...setJournals, status]);
+    console.log("working", touched);
+      useEffect(() => {
+        if (status) {
+      setJournals([...journals, status]);
     }
   }, [status]);
 
-   return (
+   
+  return (
    <div className="journal-form">
      <h1> Activity Log </h1>
-     < Mood/>
+     
     <Form>
 
-      <Field className="activity-box"
-            type="text" 
-            name="activity" 
-            placeholder="            What activity are you doing?"/>
+      <Field className="activity-box" type="text" name="activity" placeholder="                    What are you doing?"/>
         {touched.activity && errors.activity && (
-          <p className="error">{errors.activity}</p>
+        <p className="error">{errors.activity}</p>
         )}
 
         <br></br>
@@ -39,45 +37,58 @@ const JournalForm = ({ errors, touched, values, status}) => {
         {touched.notes && errors.notes && (
           <p className="errors">{errors.notes}</p>
         )}
+
+          <h2>Mood:</h2>
+        < Mood/>
+
+          <label className="checkbox-container">
+      
+          <Field
+            type="checkbox"
+            name="happy"
+            checked={values.happy}
+          />
+          <Field
+            type="checkbox"
+            name="meh"
+            checked={values.meh}
+          />
+          <Field
+            type="checkbox"
+            name="sad"
+            checked={values.sad}
+          />
+          <span className="checkmark" />
+        </label>
       
         <br></br>
         <Button type='submit'>Submit</Button>
     </Form>
-    {journals.map(journal => (
-      <div class="ui card">
-      <div class="content">
-        <div class="header"> Activity:{journal.activity}</div>
-        <div class="description">
-          <p>{journal.notes}</p>
-  
-        </div>
-      </div>
-      
-        Mood
-      </div>
- 
-    ))}
+
    </div>
          );
        }
 
   const FormikJournalForm = withFormik({
-        mapPropsToValues({ activity, notes }) {
+        mapPropsToValues({ activity, notes,happy, meh, sad }) {
 
           return {
             activity: activity || "",
-            notes: notes || ""
+            notes: notes || "",
+            happy: happy || false,
+             meh: meh || false,
+            sad: sad  || false,
                   };
                 },
       validationSchema: Yup.object().shape({
-        activity: Yup.string().required("Include Activity"),
-        notes: Yup.string().required("Please Type A Reflection"),
+        activity: Yup.string().required("Include Activity!"),
+        notes: Yup.string().required("Please Type A Reflection!"),
       }),
     
       handleSubmit(values, {setStatus}) {
           console.log(values);
           axios
-          .post("<https://reqres.in/api/users/>", values)
+          .post("https://reqres.in/api/users/", values)
           .then(res => {
             setStatus(res.data);
           })

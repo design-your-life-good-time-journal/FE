@@ -1,15 +1,16 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Button } from 'antd';
+import {Icon} from 'antd';
 
 
    function Mood(){
 
     return(
         <div className="mood-buttons">
-        <Button  shape="circle" size="large" icon="smile" />
-        <Button shape="circle" size="large" icon="meh" />
-        <Button shape="circle" size="large" icon="frown" />
+        <Icon shape="circle" size="large" type="smile" />
+        <Icon shape="circle" size="large" type="meh" />
+        <Icon shape="circle" size="large" type="frown" />
+   
       </div>
 
     )};

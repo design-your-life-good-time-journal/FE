@@ -1,6 +1,6 @@
 import JournalForm from './JournalComponents/JournalForm';
 import styled from 'styled-components'
-import React, { Component, Route } from 'react';
+import React from 'react';
 import { BrowserRouter as NavLink } from "react-router-dom";
 import './App.css';
 
@@ -16,16 +16,9 @@ const WrapperDiv = styled.div`
 function App() {
  return (
   <WrapperDiv>
-      <div className="navbar">
-        <NavLink exact to="/" activeClassName="activeNavButton">Home</NavLink>
-        <NavLink to="/information" activeClassName="activeNavButton">Information</NavLink>
-      />
-    
-        <h1>Design Your Life</h1>
-      </div> 
+      <h1>Design Your Life</h1>
      <JournalForm/>
    </ WrapperDiv>
-
     );
   }
 

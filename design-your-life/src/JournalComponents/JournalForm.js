@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {withFormik, Form, Field} from 'formik'; 
-import { Card, Button} from 'semantic-ui-react';
+import { Card, Icon, Button} from 'semantic-ui-react';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { render } from "react-dom";
@@ -9,7 +9,14 @@ import { render } from "react-dom";
 
 const JournalForm = ({ errors, touched, values, status}) => {
   const [journals, setJournals] = useState([]);
-
+  {journals.map(journal => (
+  
+    <Card
+      header= {journal.activity}
+      meta={journal.mood}
+      description= {journal.notes} 
+    />
+  ))}
     console.log("working", touched);
 
       useEffect(() => {
@@ -17,6 +24,7 @@ const JournalForm = ({ errors, touched, values, status}) => {
       setJournals([...journals, status,values]);
     }
   }, [])
+ 
 
    
 return (
@@ -42,16 +50,10 @@ return (
         </Field>
      <Button type='submit'>Submit</Button>
     </Form>
-    
-<Card
-    header= {journals.activity}
-    meta={journals.mood}
-    description= {journals.notes} 
-  />
 
 </div>
-         );
-       }
+);
+};
 
   const FormikJournalForm = withFormik({
         mapPropsToValues({ activity, notes, mood}) {

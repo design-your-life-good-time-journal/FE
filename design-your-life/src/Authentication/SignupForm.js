@@ -4,6 +4,10 @@ import {Link} from 'react-router-dom';
 import * as yup from "yup";
 import axios from "axios";
 import './Auth.css';
+
+
+
+
 const SignUpForm = ({ errors, touched, values, status }) => {
  const [users, setusers] = useState([]);
    console.log(users);

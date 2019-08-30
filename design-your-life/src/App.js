@@ -1,25 +1,16 @@
-import JournalForm from './JournalComponents/JournalForm';
-import styled from 'styled-components'
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as NavLink } from "react-router-dom";
 import './App.css';
-
-
-const WrapperDiv = styled.div`
-    text-align:center;
-    border: black;
-    width: 100%;
-    height: 100%;
-    border-bottom: black;
-`;
+import AppRouter from './Routing/AppRouter';
+import NavBar from './Routing/NavBar';
 
 
 function App() {
-  return (
-   <WrapperDiv>
-    <h1>  </h1>
-      
-      <JournalForm/>
-    </ WrapperDiv>
+ return (
+<div>
+  <NavBar />
+  <AppRouter/>
+  </div>
 
     );
   }

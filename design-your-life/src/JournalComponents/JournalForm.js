@@ -22,10 +22,10 @@ return (
   <div className="journal-form">
    <h1> Activity Log </h1>
     <Form>
-      <Field type="text" name="activity" placeholder="                    What are you doing?"/>
+      <Field className="activity" type="text" name="activity" placeholder="                    What are you doing?"/>
         {touched.activity && errors.activity && (<p className="error">{errors.activity}</p>)}
         <br></br>
-      <Field component="textarea" type='text' name='notes' placeholder="      Write Your Thoughts Here" />
+      <Field className="reflection" component="textarea" type='text' name='notes' placeholder="                 Write Your Thoughts Here" />
         {touched.notes && errors.notes && (<p className="errors">{errors.notes}</p> )}
        
 

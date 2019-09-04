@@ -6,15 +6,15 @@ import axios from 'axios';
 
 
 
-const JournalForm = ({ errors, touched, values, status}) => {
-  const [journals, setJournals] = useState([]);
-    console.log("working", touched);
+  const JournalForm = ({ errors, touched, values, status}) => {
+    const [journals, setJournals] = useState([]);
+      console.log("working", touched);
 
-      useEffect(() => {
-        if (status) {
-      setJournals([...journals, status]);
-    }
-  }, [status]);
+        useEffect(() => {
+          if (status) {
+        setJournals([...journals, status]);
+      }
+    }, [status]);
  
 
    
@@ -30,19 +30,17 @@ return (
        
 
          <h2>Current Mood:</h2>
-        <Field component="select" className="mood-select" name="mood">
+      <Field component="select" className="mood-select" name="mood">
           <option>Select a Mood</option>
           <option value="Happy">Happy</option>
           <option value="Sad">Sad</option>
           <option value="Annoyed">Annoyed</option>
           <option value="Meh">Meh</option>
           <option value="Fufilled">Fufilled</option>
-        </Field>
+      </Field>
      <button type='submit'>Submit</button>
     </Form>
     
-
-
     {journals.map(journal => (
         <div className='entry' key={journal.id}>
           <h2 className='entry-header'>{journal.activity}</h2>
